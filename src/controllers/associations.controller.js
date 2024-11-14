@@ -1,7 +1,4 @@
 const axios = require("axios");
-const { Parser } = require("json2csv");
-
-const json2csvParser = new Parser({ flatten: true });
 
 const mongoose = require("mongoose");
 
