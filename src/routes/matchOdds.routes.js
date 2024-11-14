@@ -1,8 +1,8 @@
 const express = require('express');
+const Controller = require('../controllers');
+
 const router = express.Router();
 
-const matchOddsController = require('../controllers/matchOdds.controller');
-
-router.get('/liveMatchOdds/:project_key', matchOddsController.liveMatchOdds);
+router.get('/liveMatchOdds/:project_key', Controller.matchOddsController.liveMatchOdds);
 
 module.exports = router;

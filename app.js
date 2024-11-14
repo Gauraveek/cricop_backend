@@ -1,24 +1,19 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-const news = require('./src/routes/news.routes')
-const accessTokenRoute = require('./src/routes/accessToken.routes');
-const associationRoute = require('./src/routes/associations.routes');
-const tournamentsRoute = require('./src/routes/tournaments.routes');
-const matchRoutes = require('./src/routes/match.routes');
-const statsRoutes = require('./src/routes/stats.routes');
-const fantasyRoutes = require('./src/routes/fantasy.routes');
-const matchOddsRoutes = require('./src/routes/matchOdds.routes');
+const Routes = require('./src/routes/index');
 
-app.use('/api', accessTokenRoute);
-app.use('/associations', associationRoute);
-app.use('/tournaments', tournamentsRoute);
-app.use('/match', matchRoutes);
-app.use('/stats', statsRoutes);
-app.use('/fantasy', fantasyRoutes);
-app.use('/matchOdds', matchOddsRoutes);
+app.use('/api/v1/token', Routes.accessTokenRoutes);
+app.use('/api/v1/associations', Routes.associationRoutes);
+app.use('/api/v1/tournaments', Routes.tournamentRoutes);
+app.use('/api/v1/match', Routes.matchRoutes);
+app.use('/api/v1/stats', Routes.statsRoutes);
+app.use('/api/v1/fantasy', Routes.fantasyRoutes);
+app.use('/api/v1/matchOdds', Routes.matchOddRoutes);
 
 
 module.exports=app;

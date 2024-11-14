@@ -1,9 +1,9 @@
 const express = require('express');
-const fantasyController = require('../controllers/fantasy.controller');
+const Controller = require('../controllers');
 
 const router =  express.Router();
 
-router.get('/matchCredits/:project_key', fantasyController.getMatchCredits);
-router.get('/matchPoints/:project_key', fantasyController.getMatchPoints);
+router.get('/matchCredits/:project_key', Controller.fantasyController.getMatchCredits);
+router.get('/matchPoints/:project_key', Controller.fantasyController.getMatchPoints);
 
 module.exports = router;
